@@ -1,13 +1,13 @@
 package by.gsu.training.final1;
 
 public class Trip {
-    private final int dailyAllowance;
+    private final int DAILY_ALLOWANCE;
     private String account;
     private int transportationExpenses;
     private int durationInDays;
 
     public Trip() {
-        dailyAllowance = 1234;
+        DAILY_ALLOWANCE = 1234;
     }
 
     public Trip(String name) {
@@ -20,18 +20,18 @@ public class Trip {
 
     public Trip(String account, int dailyAllowance, int transportationExpenses, int durationInDays) {
         this.account = account;
-        this.dailyAllowance = dailyAllowance;
+        this.DAILY_ALLOWANCE = dailyAllowance;
         this.transportationExpenses = transportationExpenses;
         this.durationInDays = durationInDays;
     }
 
     public int getTotal() {
-        return transportationExpenses + dailyAllowance * durationInDays;
+        return transportationExpenses + DAILY_ALLOWANCE * durationInDays;
     }
 
     public void show() {
         System.out.println("аккаунт = " + account);
-        System.out.println("ставка = " + toByn(dailyAllowance));
+        System.out.println("ставка = " + toByn(DAILY_ALLOWANCE));
         System.out.println("транспорт = " + toByn(transportationExpenses));
         System.out.println("дней = " + durationInDays);
         System.out.println("всего = " + toByn(this.getTotal()));
@@ -54,7 +54,7 @@ public class Trip {
     }
 
     public int getDailyAllowance() {
-        return dailyAllowance;
+        return DAILY_ALLOWANCE;
     }
 
     public String getAccount() {
