@@ -32,9 +32,14 @@ public class Runner2 {
 
         // 4. Узнать количество свободных мест в вагоне с заданным номером.
         showTitle("Задание №4");
-        Carriage carriage2 = train.getCarriageByNumber(2);
-        int freeSeatsInSecondCarriage = carriage2.getSEATS() - carriage2.getPassengers();
-        System.out.println("Свобоных мест в вагоне#2: " + freeSeatsInSecondCarriage);
+        int number = 2;
+        Carriage carriage = train.getCarriageByNumber(number);
+        if (carriage != null) {
+            int freeSeatsInSecondCarriage = carriage.getSEATS() - carriage.getPassengers();
+            System.out.println("Свобоных мест в вагоне #" + number + ": " + freeSeatsInSecondCarriage);
+        } else {
+            System.out.println("Тут нет вагона #" + number);
+        }
 
         // 5. Посадить в поезд заданное количество пассажиров в вагоны с мягкими местами для сидения.
         // (если всех посадить не удалось, вывести на экран количество пассажиров, которых не удалось посадить в поезд).
@@ -68,9 +73,11 @@ public class Runner2 {
         showTitle("Задание №9");
         Locomotive locomotive = train.getLocomotive();
         if (locomotive.getLocomotiveType() == TypeLocomotive.DIESEL_LOCOMOTIVE) {
-            locomotive.setLocomotiveType(TypeLocomotive.ELECTRIC_LOCOMOTIVE);
+            train.setLocomotive(new Locomotive(4321, TypeLocomotive.ELECTRIC_LOCOMOTIVE, 123));
+            System.out.println("Мы поставили локомотив-электровоз: " + train.getLocomotive());
+        } else {
+            System.out.println("Тут уже локомотив-электровоз: " + train.getLocomotive());
         }
-        System.out.println("Мы заэлетровозили локомотив: " + train.getLocomotive());
 
         // 10. Отсортировать вагоны поезда по убыванию уровня комфортности.
         showTitle("Задание №10");
