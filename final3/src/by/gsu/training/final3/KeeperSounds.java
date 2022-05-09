@@ -4,9 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class KeeperSounds {
-    public static void speakToFile(IMakingSounds[] sources, FileWriter file) throws IOException {
-        for (IMakingSounds source: sources) {
-            file.write("A " + source + " tells " + source.makeSound() + "\n");
-        }
+    public static void speakToFile(IMakingSounds source, FileWriter file) throws IOException {
+        file.write("A " + source + " tells " + source.makeSound() + "\n");
     }
 }
